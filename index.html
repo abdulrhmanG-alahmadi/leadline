@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Find public business contact details in Saudi Arabia." />
+    <title>Leadline — Saudi business finder</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Leadline home">
+          <span class="brand-mark">L</span>
+          <span>Leadline</span>
+        </a>
+        <div class="api-status" id="apiStatus"><span></span> Checking API</div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <p class="eyebrow">SAUDI BUSINESS PROSPECTING</p>
+          <h1>Find the right businesses.<br><em>Start better conversations.</em></h1>
+          <p>Discover public contact details for real-estate agencies and medical clinics across Jeddah, Khobar, and Riyadh.</p>
+        </section>
+
+        <section class="workspace">
+          <aside class="search-panel">
+            <div class="panel-heading">
+              <span>01</span>
+              <div><h2>Build your search</h2><p>Select your markets and depth.</p></div>
+            </div>
+
+            <form id="searchForm">
+              <fieldset>
+                <legend>Business type</legend>
+                <label class="check-card"><input type="checkbox" name="category" value="Real estate" checked><span class="check-icon">⌂</span><span><b>Real estate</b><small>Agencies & brokers</small></span></label>
+                <label class="check-card"><input type="checkbox" name="category" value="Clinic" checked><span class="check-icon">+</span><span><b>Medical clinics</b><small>Clinics & health centers</small></span></label>
+              </fieldset>
+
+              <fieldset>
+                <legend>Cities</legend>
+                <div class="chip-grid">
+                  <label><input type="checkbox" name="city" value="Jeddah" checked><span>Jeddah</span></label>
+                  <label><input type="checkbox" name="city" value="Khobar" checked><span>Khobar</span></label>
+                  <label><input type="checkbox" name="city" value="Riyadh" checked><span>Riyadh</span></label>
+                </div>
+              </fieldset>
+
+              <label class="select-label" for="pages">Search depth <span id="resultEstimate">up to 120 results</span></label>
+              <select id="pages" name="pages">
+                <option value="1">Quick · 1 page</option>
+                <option value="2">Expanded · 2 pages</option>
+                <option value="3">Deep · 3 pages</option>
+              </select>
+
+              <label class="toggle-row">
+                <span><b>Look for public emails</b><small>Checks company websites. Slower.</small></span>
+                <input type="checkbox" id="scanEmails"><i></i>
+              </label>
+
+              <button class="search-button" type="submit"><span>Find businesses</span><b>→</b></button>
+              <p class="form-message" id="formMessage" role="status"></p>
+            </form>
+          </aside>
+
+          <section class="results-panel">
+            <div class="results-header">
+              <div><p class="eyebrow">YOUR RESULTS</p><h2>Business directory</h2></div>
+              <button class="export-button" id="exportButton" disabled>↓ Export CSV</button>
+            </div>
+
+            <div class="stats" id="stats">
+              <article><small>Businesses</small><strong id="businessCount">—</strong></article>
+              <article><small>With phone</small><strong id="phoneCount">—</strong></article>
+              <article><small>With website</small><strong id="websiteCount">—</strong></article>
+              <article><small>Emails found</small><strong id="emailCount">—</strong></article>
+            </div>
+
+            <div class="toolbar">
+              <label class="filter-search"><span>⌕</span><input id="filterInput" type="search" placeholder="Filter by name, city, or phone" aria-label="Filter results"></label>
+              <select id="websiteFilter" aria-label="Filter by website status"><option value="all">All websites</option><option value="yes">Has website</option><option value="no">No website</option></select>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Business</th><th>City</th><th>Phone</th><th>Website</th><th>Email</th><th></th></tr></thead>
+                <tbody id="resultsBody"></tbody>
+              </table>
+              <div class="empty-state" id="emptyState"><div>⌖</div><h3>Your leads will appear here</h3><p>Choose your search settings and find businesses to get started.</p></div>
+            </div>
+          </section>
+        </section>
+      </main>
+
+      <footer><span>Leadline</span><p>Public business data powered by Google Places.</p></footer>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
