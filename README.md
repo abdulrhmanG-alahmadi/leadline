@@ -1,8 +1,39 @@
+![Leadline — local business discovery](docs/cover.svg)
+
 # Leadline
+
+**A focused search-to-CSV workflow for Saudi business prospecting.**
+
+[Preview](#preview) · [Quick start](#the-easy-way-macos) · [Architecture](#architecture) · [Terminal setup](#terminal-setup)
 
 Find public phone numbers, websites, and emails for real-estate agencies and medical clinics across Jeddah, Khobar, and Riyadh—then export the results to CSV.
 
+## Preview
+
+Existing dashboard screenshot from this repository.
+
 ![Leadline dashboard](docs/leadline-dashboard.png)
+
+## Project story
+
+**Problem.** Collecting public business contact details across several cities means repeating searches and manually organizing results.
+
+**Approach.** A Vite interface sends a scoped search to an Elysia server, which queries Google Places and optionally checks public contact pages. The user filters the returned leads and exports the current view.
+
+**Current result.** A local dashboard with city/category filters, contact details, and CSV export. It supports Jeddah, Khobar, and Riyadh; Google limits the results returned per query. No hosted demo is advertised.
+
+## Architecture
+
+```mermaid
+flowchart LR
+    U[Vite dashboard] --> A[Elysia API on Bun]
+    A --> G[Google Places API]
+    A --> W[Optional public contact pages]
+    G --> A
+    W --> A
+    A --> U
+    U --> C[Filtered CSV export]
+```
 
 ## The easy way (macOS)
 
