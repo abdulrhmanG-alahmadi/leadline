@@ -1,4 +1,8 @@
-![Leadline — local business discovery](docs/cover.svg)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/cover.svg">
+  <source media="(prefers-color-scheme: light)" srcset="docs/cover-light.svg">
+  <img alt="Leadline — Local business discovery" src="docs/cover.svg" width="1200">
+</picture>
 
 # Leadline
 
